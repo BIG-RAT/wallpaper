@@ -174,7 +174,7 @@
 					};
 				};
 			};
-			buildConfigurationList = B5C2D7B7280776AD00A2F205 /* Build configuration list for PBXProject "Jamf Wallpaper" */;
+			buildConfigurationList = B5C2D7B7280776AD00A2F205 /* Build configuration list for PBXProject "wallpaper" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -423,7 +423,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		B5C2D7B7280776AD00A2F205 /* Build configuration list for PBXProject "Jamf Wallpaper" */ = {
+		B5C2D7B7280776AD00A2F205 /* Build configuration list for PBXProject "wallpaper" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				B5C2D7C9280776AF00A2F205 /* Debug */,
