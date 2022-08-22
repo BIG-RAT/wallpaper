@@ -50,7 +50,7 @@
 		B5699DED287FABFC004AF6FA /* images */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = images; sourceTree = SOURCE_ROOT; };
 		B5699DEF287FAC0A004AF6FA /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		B5699DF128805D19004AF6FA /* README.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = README.html; sourceTree = "<group>"; };
-		B589E876281BE620005571CC /* Jamf_Wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Jamf_Wallpaper.entitlements; sourceTree = "<group>"; };
+		B589E876281BE620005571CC /* wallpaper.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = wallpaper.entitlements; sourceTree = "<group>"; };
 		B589E877281D7DE0005571CC /* Alert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
 		B589E87F28244C66005571CC /* WriteToLog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WriteToLog.swift; sourceTree = "<group>"; };
 		B589E88128244CA5005571CC /* Globals.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Globals.swift; sourceTree = "<group>"; };
@@ -132,7 +132,7 @@
 				B589E87F28244C66005571CC /* WriteToLog.swift */,
 				B5699DF128805D19004AF6FA /* README.html */,
 				B5C2D7C3280776AF00A2F205 /* Assets.xcassets */,
-				B589E876281BE620005571CC /* Jamf_Wallpaper.entitlements */,
+				B589E876281BE620005571CC /* wallpaper.entitlements */,
 				B5C2D7C5280776AF00A2F205 /* Main.storyboard */,
 			);
 			path = wallpaper;
@@ -381,7 +381,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = jamf.ie.jamfwallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = jamf.ie.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -413,7 +413,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 11.0;
 				MARKETING_VERSION = 1.1.5;
-				PRODUCT_BUNDLE_IDENTIFIER = jamf.ie.jamfwallpaper;
+				PRODUCT_BUNDLE_IDENTIFIER = jamf.ie.wallpaper;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
