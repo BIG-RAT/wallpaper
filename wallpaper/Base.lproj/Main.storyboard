@@ -16,11 +16,11 @@
                 <application id="hnw-xV-0zn" sceneMemberID="viewController">
                     <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
                         <items>
-                            <menuItem title="Jamf Wallpaper" id="1Xt-HY-uBw">
+                            <menuItem title="wallpaper" id="1Xt-HY-uBw">
                                 <modifierMask key="keyEquivalentModifierMask"/>
-                                <menu key="submenu" title="Jamf Wallpaper" systemMenu="apple" id="uQy-DD-JDr">
+                                <menu key="submenu" title="wallpaper" systemMenu="apple" id="uQy-DD-JDr">
                                     <items>
-                                        <menuItem title="About Jamf Wallpaper" id="5kV-Vb-QxS">
+                                        <menuItem title="About wallpaper" id="5kV-Vb-QxS">
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <connections>
                                                 <action selector="showAbout:" target="Ady-hI-5gd" id="bDK-AO-dPM"/>
@@ -34,7 +34,7 @@
                                             <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
-                                        <menuItem title="Hide Jamf Wallpaper" keyEquivalent="h" id="Olw-nP-bQN" userLabel="Hide Jamf Wallpaper">
+                                        <menuItem title="Hide wallpaper" keyEquivalent="h" id="Olw-nP-bQN" userLabel="Hide Jamf Wallpaper">
                                             <connections>
                                                 <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
                                             </connections>
@@ -52,7 +52,7 @@
                                             </connections>
                                         </menuItem>
                                         <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
-                                        <menuItem title="Quit Jamf Wallpaper" keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit Jamf Wallpaper">
+                                        <menuItem title="Quit wallpaper" keyEquivalent="q" id="4sb-4s-VLi" userLabel="Quit Jamf Wallpaper">
                                             <connections>
                                                 <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
                                             </connections>
@@ -684,7 +684,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Jamf_Wallpaper" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="wallpaper" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -693,8 +693,8 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
-                    <window key="window" title="Jamf Wallpaper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="IQv-IB-iLA">
+                <windowController id="B8D-0N-5wS" customClass="WindowController" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                    <window key="window" title="wallpaper" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" frameAutosaveName="" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
@@ -714,7 +714,7 @@
         <!--Login View Controller-->
         <scene sceneID="DyX-OE-uNK">
             <objects>
-                <viewController id="ayQ-rM-mD1" customClass="LoginViewController" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ayQ-rM-mD1" customClass="LoginViewController" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="RSK-vk-aKa">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="142"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -850,10 +850,10 @@ DQ
             </objects>
             <point key="canvasLocation" x="54" y="1236"/>
         </scene>
-        <!--Jamf Wallpaper-->
+        <!--wallpaper-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController title="Jamf Wallpaper" id="XfG-lQ-9wD" customClass="ViewController" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="wallpaper" id="XfG-lQ-9wD" customClass="ViewController" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="780" height="688"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1513,7 +1513,7 @@ Gw
         <!--Suggested Sizes-->
         <scene sceneID="K8m-Of-6Ns">
             <objects>
-                <viewController title="Suggested Sizes" id="EkF-W6-zOt" customClass="SizesVC" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Suggested Sizes" id="EkF-W6-zOt" customClass="SizesVC" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="Cvc-P6-S7Z">
                         <rect key="frame" x="0.0" y="0.0" width="581" height="380"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1544,7 +1544,7 @@ Gw
         <!--Text Format-->
         <scene sceneID="lQm-TY-mdf">
             <objects>
-                <viewController title="Text Format" id="TAf-pL-yH7" customClass="TextFormatVC" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Text Format" id="TAf-pL-yH7" customClass="TextFormatVC" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="pni-hE-5pU">
                         <rect key="frame" x="0.0" y="0.0" width="263" height="114"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1657,7 +1657,7 @@ Gw
                                     <constraint firstAttribute="width" constant="24" id="kDh-cR-btn"/>
                                     <constraint firstAttribute="height" constant="24" id="ywg-mh-w5s"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" title="center" bezelStyle="shadowlessSquare" image="text.aligncenter" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="suh-l8-iHD">
+                                <buttonCell key="cell" type="square" title="center" bezelStyle="shadowlessSquare" image="text.aligncenter" catalog="system" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="suh-l8-iHD">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1671,7 +1671,7 @@ Gw
                                     <constraint firstAttribute="height" constant="24" id="bip-j8-5eg"/>
                                     <constraint firstAttribute="width" constant="24" id="scj-fW-Dol"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" title="right" bezelStyle="shadowlessSquare" image="text.alignright" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4yZ-cx-rKg">
+                                <buttonCell key="cell" type="square" title="right" bezelStyle="shadowlessSquare" image="text.alignright" catalog="system" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="4yZ-cx-rKg">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1685,7 +1685,7 @@ Gw
                                     <constraint firstAttribute="height" constant="24" id="Ahm-L0-ayP"/>
                                     <constraint firstAttribute="width" constant="24" id="wxd-bd-rQ1"/>
                                 </constraints>
-                                <buttonCell key="cell" type="square" title="left" bezelStyle="shadowlessSquare" image="text.alignleft" catalog="system" imagePosition="only" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="f9N-10-udT">
+                                <buttonCell key="cell" type="square" title="left" bezelStyle="shadowlessSquare" image="text.alignleft" catalog="system" imagePosition="overlaps" alignment="center" borderStyle="border" imageScaling="proportionallyUpOrDown" inset="2" id="f9N-10-udT">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
@@ -1767,7 +1767,7 @@ Gw
         <!--About View Controller-->
         <scene sceneID="FEN-qj-GCB">
             <objects>
-                <viewController storyboardIdentifier="aboutVC" id="uzV-Ce-1P6" customClass="AboutViewController" customModule="Jamf_Wallpaper" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="aboutVC" id="uzV-Ce-1P6" customClass="AboutViewController" customModule="wallpaper" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="jc4-qz-vdI">
                         <rect key="frame" x="0.0" y="0.0" width="625" height="314"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -1824,7 +1824,7 @@ Gw
                             </scrollView>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="qo1-LE-jCf">
                                 <rect key="frame" x="142" y="249" width="243" height="45"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Jamf Wallpaper" id="HeL-n1-u7t">
+                                <textFieldCell key="cell" lineBreakMode="clipping" title="wallpaper" id="HeL-n1-u7t">
                                     <font key="font" metaFont="system" size="33"/>
                                     <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
