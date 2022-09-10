@@ -1,8 +1,10 @@
-# Jamf Wallpaper
+# wallpaper
 
 This app helps you set customized background images to iOS/iPadOS devices managed by Jamf Pro. You can overlay custom text and/or QR Code for each device. 
 
-Download: [Jamf Wallpaper](https://github.com/jamf/wallpaper/releases/latest/download/wallpaper.zip)
+**Important:**  Wallpaper images are stored in the database.  Use in moderation to avoid excessive database growth.</p>
+
+Download: [wallpaper](https://github.com/BIG-RAT/wallpaper/releases/latest/download/wallpaper.zip)
 
 Test your setting on a variety of test devices prior to sending to an entire fleet. You may wish to do rollouts in phases. Image processing for a large fleet will take some time and server resources. 
 
@@ -32,14 +34,14 @@ The following Jamf Pro permissions are required to set wallpaper:<br>
 ![Extension Attribute](./images/ea.png "Extension Attribute")
 
 ## Startup
-When you launch the program, you will be prompted to login to you Jamf Pro Server.
+When you launch the program, you will be prompted to login to your Jamf Pro Server.
 
 ![Login Screen](./images/login.png "Login Screen")
 
 
 ## The Preview area
 
-![The Jamf Wallpaper window](./images/basicApp.png "The Jamf Wallpaper window")
+![wallpaper preview window](./images/basicApp.png "wallpaper preview window")
 
 To set a wallpaper, select an image file (.jpeg or .png format) from the drop-down menu or select a solid color using the color wheel. Your image/color will appear in the preview area. You can swap the preview between iPhone and iPad views. 
 

@@ -928,10 +928,11 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
             return
         }
         
-        let today            = NSDate()
         let formatter        = DateFormatter()
         formatter.dateFormat = "yMMd_HHmm"
-        let timeDate2        = formatter.string(from: today as Date)
+        // used for file export - currently disabled
+//        let today            = NSDate()
+//        let timeDate2        = formatter.string(from: today as Date)
         
         var rate       = 0.0
         var xml        = ""

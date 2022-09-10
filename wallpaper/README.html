@@ -328,17 +328,19 @@ kbd {
 
 <body>
 
-<h1 id="toc_0">Jamf Wallpaper</h1>
+<h1 id="toc_0">wallpaper</h1>
 
 <p>This app helps you set customized background images to iOS/iPadOS devices managed by Jamf Pro. You can overlay custom text and/or QR Code for each device. </p>
 
-<p>Download: <a href="https://github.com/jamf/wallpaper/releases/latest/download/Jamf.Wallpaper.zip">Jamf Wallpaper</a></p>
+<p><b>Important:</b>  Wallpaper images are stored in the database.  Use in moderation to avoid excessive database growth.</p>
+
+<p>Download: <a href="https://github.com/BIG-RAT/wallpaper/releases/latest/download/wallpaper.zip">wallpaper</a></p>
 
 <p>Test your setting on a variety of test devices prior to sending to an entire fleet. You may wish to do rollouts in phases. Image processing for a large fleet will take some time and server resources. </p>
 
 <h2 id="toc_0.1">Setup</h2>
 
-<p>The following Jamf Pro permissions are required to set wallpaper:<br>
+<p>The following Jamf Pro permissions are required to set the wallpaper:<br>
 <table border="1">
   <tr>
     <td>Jamf Pro Server Objects</td>
@@ -363,13 +365,13 @@ kbd {
 
 <h2 id="toc_1">Startup</h2>
 
-<p>When you launch the program, you will be prompted to login to you Jamf Pro Server.</p>
+<p>When you launch the program, you will be prompted to login to your Jamf Pro Server.</p>
 
 <p><img src="./images/login.png" alt="Login Window" title="Login Screen"></p>
 
 <h2 id="toc_2">The Preview area</h2>
 
-<p><img src="./images/basicApp.png" alt="Preview Area" title="The Jamf Wallpaper window"></p>
+<p><img src="./images/basicApp.png" alt="Preview Area" title="wallpaper preview window"></p>
 
 <p>To set a wallpaper, select an image file (.jpeg or .png format) from the drop-down menu or select a solid color using the color wheel. Your image/color will appear in the preview area. You can swap the preview between iPhone and iPad views. </p>
 
@@ -389,8 +391,8 @@ kbd {
 </tbody>
 </table>
 
-<p>Use the smallest image size that achieves acceptable appearance to improve performance. Aspect ratio and resolution vary by device. https://www.ios-resolution.com is a useful reference.
-On iPad, wallpaper will rotate, so a square image may be preferred. For additional information about device resolution/aspect ratios see Apple’s Human Interface Guidelines. |</p>
+<p>Use the smallest image size that achieves acceptable appearance to improve performance. Aspect ratio and resolution vary by device, <a href="https://www.ios-resolution.com">https://www.ios-resolution.com</a> is a useful reference.
+On iPad, wallpaper will rotate, so a square image may be preferred. For additional information about device resolution/aspect ratios see Apple’s Human Interface Guidelines.</p>
 
 <h2 id="toc_3">OPTIONS</h2>
 
