@@ -43,14 +43,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     @IBOutlet weak var overlay_button: NSPopUpButton!
     @IBOutlet weak var target_button: NSPopUpButton!
     
-//    @IBOutlet var qrCodeVertPos_slider: NSSlider!
-//    @IBOutlet weak var qrCodeHorizPos_slider: NSSlider!
-    
-//    @IBOutlet var textVertPos_slider: NSSlider!
-//    @IBOutlet var textHorizPos_slider: NSSlider!
-    
     @IBOutlet weak var qrCodeSize_slider: NSSlider!
-    //    @IBOutlet weak var textPosition_control: NSSegmentedControl!
     
     @IBOutlet var addText_textview: NSTextView!
     @IBOutlet weak var selectScope_button: NSPopUpButton!
@@ -222,64 +215,6 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         stop_button.isEnabled = false
         appInfo.stopUpdates = true
     }
-//    @IBAction func textPosition_action(_ sender: Any) {
-////        print("text position: \(textPosition_control.indexOfSelectedItem)")
-//        appInfo.textPosition = textPosition_control.indexOfSelectedItem
-//        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
-//    }
-    /*
-    // qr code position - start
-    @IBAction func qrCodeVertPos_action(_ sender: Any) {
-        let labelPos = Double((Int(qrCodeVertPos_slider.frame.height)-28)*qrCodeVertPos_slider.integerValue/100+67)
-        yPos_label.frame = CGRect(x: 42.0, y: labelPos, width: 38.0, height: 18.0)
-        yPos_label.isHidden = false
-        yPos_label.stringValue = "\(Int(qrCodeVertPos_slider.integerValue))%"
-        appInfo.qrCodeVertPos[appInfo.currentPreviewType]  = qrCodeVertPos_slider.integerValue
-        appInfo.qrCodeHorizPos[appInfo.currentPreviewType] = qrCodeHorizPos_slider.integerValue
-        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
-        if NSApplication.shared.currentEvent?.type == .leftMouseUp {
-            yPos_label.isHidden = true
-        }
-    }
-    @IBAction func qrCodeHorizPos_action(_ sender: Any) {
-        let labelPos = Double((Int(qrCodeHorizPos_slider.frame.width)-24)*qrCodeHorizPos_slider.integerValue/100+55)
-        xPos_label.frame = CGRect(x: labelPos, y: 48, width: 38.0, height: 18.0)
-        xPos_label.isHidden = false
-        xPos_label.stringValue = "\(Int(qrCodeHorizPos_slider.integerValue))%"
-        appInfo.qrCodeHorizPos[appInfo.currentPreviewType] = qrCodeHorizPos_slider.integerValue
-        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
-        if NSApplication.shared.currentEvent?.type == .leftMouseUp {
-            xPos_label.isHidden = true
-        }
-    }
-    // qr code position - end
-    // text position - start
-    @IBAction func textVertPos_action(_ sender: Any) {
-        let labelPos = Double((Int(textVertPos_slider.frame.height)-28)*textVertPos_slider.integerValue/100+67)
-        yPos_label.frame = CGRect(x: previewFrame_imageview.frame.width-24.0, y: labelPos, width: 38.0, height: 18.0)
-//        yPos_label.frame = CGRect(x: 42.0, y: labelPos, width: 38.0, height: 18.0)
-        yPos_label.isHidden = false
-        yPos_label.stringValue = "\(Int(textVertPos_slider.integerValue))%"
-        print("text pos: \(yPos_label.stringValue)")
-        appInfo.textVertPos[appInfo.currentPreviewType]  = textVertPos_slider.integerValue
-        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
-        if NSApplication.shared.currentEvent?.type == .leftMouseUp {
-            yPos_label.isHidden = true
-        }
-    }
-    @IBAction func textHorizPos_action(_ sender: Any) {
-        let labelPos = Double((Int(textHorizPos_slider.frame.width)-24)*textHorizPos_slider.integerValue/100+55)
-        xPos_label.frame = CGRect(x: labelPos, y: previewFrame_imageview.frame.height, width: 38.0, height: 18.0)
-        xPos_label.isHidden = false
-        xPos_label.stringValue = "\(Int(textHorizPos_slider.integerValue))%"
-        appInfo.textHorizPos[appInfo.currentPreviewType] = textHorizPos_slider.integerValue
-        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
-        if NSApplication.shared.currentEvent?.type == .leftMouseUp {
-            xPos_label.isHidden = true
-        }
-    }
-    // text position - end
-     */
     
     // QR code size - start
     @IBAction func qrCodeSize_action(_ sender: Any) {
@@ -291,11 +226,6 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     
     @IBAction func previewType_action(_ sender: NSButton) {
         appInfo.currentPreviewType = sender.toolTip!
-        
-//        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
-//        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
-//        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
-//        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
         
         setPreviewButton(deviceType: appInfo.currentPreviewType)
         preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
@@ -568,16 +498,6 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
 //        print("[resize] backgroundW: \(backgroundW)")
 //        print("[resize] backgroundH: \(backgroundH)\n")
         // resize - end
-        
-        
-        /* Trying to adjust width of horizontal slider - not working
-        qrCodeHorizPos_slider.wantsLayer = true
-        var tempFrame = qrCodeHorizPos_slider.frame
-        print("      tempFrame: \(tempFrame)")
-        tempFrame.size.width = backgroundW-40
-        qrCodeHorizPos_slider.frame = tempFrame
-        print("tempFrame after: \(tempFrame)")
-         */
         
         if let _ = qrCodeImage {
 //            print("\naction: \(action), qrCode exists\n")
@@ -897,12 +817,13 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
 //            print("start progress indicator")
             currentProgress_indicator.isIndeterminate = true
             currentProgress_indicator.startAnimation(self)
-            currentProgress_indicator.isHidden.toggle()
+            currentProgress_indicator.isHidden = false
         }
         
         JamfPro().getToken(serverUrl: jamfServer, whichServer: "source", base64creds: jamfBase64Creds) { [self]
             (result: (Int,String)) in
             let (_,passFail) = result
+            usleep(10000)
             if passFail == "success" {
 //                print("authenticated, continue")
                 var deviceBySerial = [String:[String:Any]]()
@@ -1115,6 +1036,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
                     JamfPro().xmlAction(theServer: jamfServer, theEndpoint: "mobiledevicecommands/command/Wallpaper", theMethod: "POST", theData: xml, skip: !isSupervised) { [self]
                         (result: [Int:String]) in
                         commandsComplete += 1
+                        usleep(10000)
                         currentProgress_indicator.isIndeterminate = false
 //                            for (returnedCode,returnedMessage) in result {
                         for (returnedCode,returnedMessage) in result {
@@ -1224,8 +1146,9 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         jamfBase64Creds     = (jamfUtf8Creds?.base64EncodedString())!
         
         currentProgress_indicator.isIndeterminate = true
-        currentProgress_indicator.startAnimation(self)
-        currentProgress_indicator.isHidden = false
+//        currentProgress_indicator.startAnimation(self)
+//        currentProgress_indicator.isHidden = false
+        currentProgress_indicator.isHidden = true
         
         saveCreds = (saveCredsState == 1) ? true:false
         // check authentication, check version, set auth method - start
@@ -1564,18 +1487,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         target_button.selectItem(at: (appInfo.targetScreen ?? 1)-1)
         
         // set positions
-//        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
-//        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
         appInfo.justification              = defaults.string(forKey: "justification") ?? "center"
-//        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
-//        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
-//        qrCodeSize_slider.doubleValue      = appInfo.qrCodeSize
-        
-//        qrCodeVertPos_slider.trackFillColor  = .systemGray
-//        qrCodeHorizPos_slider.trackFillColor = .systemGray
-//        textVertPos_slider.trackFillColor    = .systemGray
-//        textHorizPos_slider.trackFillColor   = .systemGray
-//        qrCodeSize_slider.trackFillColor     = .systemGray
         
         
         if let fontTemp = defaults.object(forKey: "defaultFontSize") {
