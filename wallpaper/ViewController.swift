@@ -43,11 +43,11 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     @IBOutlet weak var overlay_button: NSPopUpButton!
     @IBOutlet weak var target_button: NSPopUpButton!
     
-    @IBOutlet var qrCodeVertPos_slider: NSSlider!
-    @IBOutlet weak var qrCodeHorizPos_slider: NSSlider!
+//    @IBOutlet var qrCodeVertPos_slider: NSSlider!
+//    @IBOutlet weak var qrCodeHorizPos_slider: NSSlider!
     
-    @IBOutlet var textVertPos_slider: NSSlider!
-    @IBOutlet var textHorizPos_slider: NSSlider!
+//    @IBOutlet var textVertPos_slider: NSSlider!
+//    @IBOutlet var textHorizPos_slider: NSSlider!
     
     @IBOutlet weak var qrCodeSize_slider: NSSlider!
     //    @IBOutlet weak var textPosition_control: NSSegmentedControl!
@@ -152,6 +152,17 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     var deployScaleAdj  = 1.0
     var withShiftKey    = false
     
+    var loadURL: URL? {
+        didSet {
+            do {
+                let bookmark = try loadURL?.bookmarkData(options: .withSecurityScope, includingResourceValuesForKeys: nil, relativeTo: nil)
+                self.defaults.set(bookmark, forKey: "bookmark")
+            } catch let error as NSError {
+                print("[PreferencesViewController] Set Bookmark Fails: \(error.description)")
+            }
+        }
+    }
+    
     @IBOutlet weak var dragShadow_button: NSButton!
     // image positions - end
     
@@ -216,6 +227,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
 //        appInfo.textPosition = textPosition_control.indexOfSelectedItem
 //        preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
 //    }
+    /*
     // qr code position - start
     @IBAction func qrCodeVertPos_action(_ sender: Any) {
         let labelPos = Double((Int(qrCodeVertPos_slider.frame.height)-28)*qrCodeVertPos_slider.integerValue/100+67)
@@ -267,6 +279,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         }
     }
     // text position - end
+     */
     
     // QR code size - start
     @IBAction func qrCodeSize_action(_ sender: Any) {
@@ -279,10 +292,10 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     @IBAction func previewType_action(_ sender: NSButton) {
         appInfo.currentPreviewType = sender.toolTip!
         
-        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
-        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
-        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
-        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
+//        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
+//        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
+//        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
+//        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
         
         setPreviewButton(deviceType: appInfo.currentPreviewType)
         preview_action(deviceType: appInfo.currentPreviewType, deviceInfo: [:], action: "preview")
@@ -447,15 +460,16 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         openPanel.canChooseDirectories = false
         openPanel.canChooseFiles = true
         let response = openPanel.runModal()
-        guard response == .OK, let loadURL = openPanel.url else { return }
-        backgroundImage = NSImage(contentsOf: loadURL)!
-        wallpaperFilename = loadURL.lastPathComponent
+        guard response == .OK else { return }
+        loadURL = openPanel.url 
+        backgroundImage = NSImage(contentsOf: loadURL!)!
+        wallpaperFilename = loadURL!.lastPathComponent
 
         backgroundImage_imageview.image = backgroundImage
         origBackgroundW = (backgroundImage.size.width)
         origBackgroundH = (backgroundImage.size.height)
         
-        appInfo.defaultBackgroundImageURL = loadURL.absoluteString.removingPercentEncoding!.replacingOccurrences(of: "file://", with: "")
+        appInfo.defaultBackgroundImageURL = loadURL!.absoluteString.removingPercentEncoding!.replacingOccurrences(of: "file://", with: "")
         
         defaults.set(false, forKey: "defaultBackgroundIsColor")
         appInfo.defaultBackgroundIsColor = false
@@ -1390,6 +1404,17 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if let bookmarkData = UserDefaults.standard.object(forKey: "bookmark") as? Data {
+            do {
+                var bookmarkIsStale = false
+                let url = try URL.init(resolvingBookmarkData: bookmarkData as Data, options: .withSecurityScope, relativeTo: nil, bookmarkDataIsStale: &bookmarkIsStale)
+                let _ = url.startAccessingSecurityScopedResource()
+                WriteToLog().message(theString: "[viewDidLoad] Bookmark Access Succeeded")
+            } catch let error as NSError {
+                WriteToLog().message(theString: "[viewDidLoad] Bookmark Access Fails: \(error.description)")
+            }
+        }
+        
         if NSFontPanel.sharedFontPanelExists {
             NSFontPanel.shared.close()
         }
@@ -1426,6 +1451,7 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         
         identifierText = getMacSerialNumber()
         appInfo.defaultBackgroundIsColor = defaults.bool(forKey: "defaultBackgroundIsColor")
+
         if appInfo.defaultBackgroundIsColor {
             guard let previousColor = defaults.data(forKey: "defaultBackgroundColor") else {
                 return
@@ -1444,21 +1470,19 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
             }
         } else {
             appInfo.defaultBackgroundImageURL = defaults.string(forKey: "defaultBackgroundImageURL") ?? ""
-            
-                if FileManager().isReadableFile(atPath: appInfo.defaultBackgroundImageURL) {
-    //                print("use previous background image")
-                    let previousImageURL = "file://"+appInfo.defaultBackgroundImageURL.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
-    //                print("previous background image URL: \(previousImageURL)")
-                    backgroundImage = NSImage(contentsOf: URL(string: previousImageURL)!)!
-    //                iPhoneBackgroundImage = backgroundImage
+        
+            if FileManager().isReadableFile(atPath: appInfo.defaultBackgroundImageURL) {
+                let previousImageURL = "file://"+appInfo.defaultBackgroundImageURL.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)!
+                backgroundImage = NSImage(contentsOf: URL(string: previousImageURL)!)!
+//                iPhoneBackgroundImage = backgroundImage
+                backgroundImage_imageview.image = backgroundImage
+            } else {
+                // using template image
+                if let _ = NSImage(named: appInfo.defaultBackgroundImageURL) {
+                    backgroundImage = NSImage(named: appInfo.defaultBackgroundImageURL)!
                     backgroundImage_imageview.image = backgroundImage
-                } else {
-                    // using template image
-                    if let _ = NSImage(named: appInfo.defaultBackgroundImageURL) {
-                        backgroundImage = NSImage(named: appInfo.defaultBackgroundImageURL)!
-                        backgroundImage_imageview.image = backgroundImage
-                    }
                 }
+            }
         }
         
         origBackgroundW = (backgroundImage.size.width)
@@ -1540,18 +1564,18 @@ class ViewController: NSViewController, NSTextFieldDelegate, NSTextViewDelegate,
         target_button.selectItem(at: (appInfo.targetScreen ?? 1)-1)
         
         // set positions
-        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
-        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
+//        textVertPos_slider.integerValue    = appInfo.textVertPos[appInfo.currentPreviewType]!
+//        textHorizPos_slider.integerValue   = appInfo.textHorizPos[appInfo.currentPreviewType]!
         appInfo.justification              = defaults.string(forKey: "justification") ?? "center"
-        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
-        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
-        qrCodeSize_slider.doubleValue      = appInfo.qrCodeSize
+//        qrCodeVertPos_slider.integerValue  = appInfo.qrCodeVertPos[appInfo.currentPreviewType]!
+//        qrCodeHorizPos_slider.integerValue = appInfo.qrCodeHorizPos[appInfo.currentPreviewType]!
+//        qrCodeSize_slider.doubleValue      = appInfo.qrCodeSize
         
-        qrCodeVertPos_slider.trackFillColor  = .systemGray
-        qrCodeHorizPos_slider.trackFillColor = .systemGray
-        textVertPos_slider.trackFillColor    = .systemGray
-        textHorizPos_slider.trackFillColor   = .systemGray
-        qrCodeSize_slider.trackFillColor     = .systemGray
+//        qrCodeVertPos_slider.trackFillColor  = .systemGray
+//        qrCodeHorizPos_slider.trackFillColor = .systemGray
+//        textVertPos_slider.trackFillColor    = .systemGray
+//        textHorizPos_slider.trackFillColor   = .systemGray
+//        qrCodeSize_slider.trackFillColor     = .systemGray
         
         
         if let fontTemp = defaults.object(forKey: "defaultFontSize") {

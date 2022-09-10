@@ -1158,16 +1158,10 @@ Gw
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="363" id="v7R-ah-vNF"/>
                                 </constraints>
                                 <sliderCell key="cell" continuous="YES" enabled="NO" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="Ktb-FB-MCw"/>
-                                <connections>
-                                    <action selector="qrCodeVertPos_action:" target="XfG-lQ-9wD" id="I9u-7q-rv8"/>
-                                </connections>
                             </slider>
                             <slider hidden="YES" toolTip="adjust QR code horizontally" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="3rx-1E-Bz6">
                                 <rect key="frame" x="3" y="20" width="436" height="28"/>
                                 <sliderCell key="cell" continuous="YES" enabled="NO" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="rRd-Hc-Vi1"/>
-                                <connections>
-                                    <action selector="qrCodeHorizPos_action:" target="XfG-lQ-9wD" id="iU5-Mh-nCi"/>
-                                </connections>
                             </slider>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="eGd-El-LvX">
                                 <rect key="frame" x="516" y="417" width="90" height="16"/>
@@ -1232,16 +1226,10 @@ Gw
                             <slider hidden="YES" toolTip="adjust text vertically" horizontalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Mj3-vj-2bi">
                                 <rect key="frame" x="472" y="60" width="24" height="543"/>
                                 <sliderCell key="cell" continuous="YES" enabled="NO" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="right" sliderType="linear" id="kZm-sl-chE"/>
-                                <connections>
-                                    <action selector="textVertPos_action:" target="XfG-lQ-9wD" id="fKJ-SL-uGn"/>
-                                </connections>
                             </slider>
                             <slider hidden="YES" toolTip="adjust text horizontally" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="IbL-sn-lbM">
                                 <rect key="frame" x="60" y="616" width="393" height="28"/>
                                 <sliderCell key="cell" continuous="YES" enabled="NO" state="on" alignment="left" maxValue="100" doubleValue="50" tickMarkPosition="above" sliderType="linear" id="3fR-EQ-y1Y"/>
-                                <connections>
-                                    <action selector="textHorizPos_action:" target="XfG-lQ-9wD" id="TbQ-2d-uZX"/>
-                                </connections>
                             </slider>
                             <slider verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wFY-9P-MUo">
                                 <rect key="frame" x="604" y="406" width="150" height="28"/>
@@ -1483,9 +1471,7 @@ Gw
                         <outlet property="iPhoneWallpaper_menuItem" destination="3Wp-Sh-AHh" id="fvJ-KU-lpk"/>
                         <outlet property="overlay_button" destination="IGz-Ym-wtx" id="vwU-QS-Oy1"/>
                         <outlet property="previewFrame_imageview" destination="ao3-Fp-AKw" id="0Hx-hN-byH"/>
-                        <outlet property="qrCodeHorizPos_slider" destination="3rx-1E-Bz6" id="hAk-O2-qje"/>
                         <outlet property="qrCodeSize_slider" destination="wFY-9P-MUo" id="aeE-6b-Hgy"/>
-                        <outlet property="qrCodeVertPos_slider" destination="eVE-Ae-JB2" id="Q1V-eM-NYF"/>
                         <outlet property="scopeLabel_label" destination="oPu-xC-QAK" id="HKm-ZD-XWP"/>
                         <outlet property="scopeMatches_scrollview" destination="0of-VW-nmX" id="hRe-G2-Yku"/>
                         <outlet property="scopeMatches_tableview" destination="bQg-SX-ZaJ" id="7Ek-md-T4B"/>
@@ -1498,8 +1484,6 @@ Gw
                         <outlet property="target_button" destination="9q6-jl-Yy5" id="dBd-pM-UT0"/>
                         <outlet property="templateDate_textfield" destination="xQA-ob-eFv" id="KiD-Bj-XeN"/>
                         <outlet property="templateTime_textfield" destination="Vdf-P7-KcH" id="YQY-qG-IHN"/>
-                        <outlet property="textHorizPos_slider" destination="IbL-sn-lbM" id="CU5-O8-VEk"/>
-                        <outlet property="textVertPos_slider" destination="Mj3-vj-2bi" id="sqc-e2-woF"/>
                         <outlet property="xPos_label" destination="k3B-yA-xWq" id="E8w-zX-NH6"/>
                         <outlet property="yPos_label" destination="sxe-Sa-EFs" id="IBe-o7-Dqj"/>
                         <segue destination="ayQ-rM-mD1" kind="sheet" identifier="loginView" id="xVP-Mz-Dzr"/>
