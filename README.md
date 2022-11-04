@@ -59,7 +59,7 @@ On iPad, wallpaper will rotate, so a square image may be preferred. For addition
 ## OPTIONS
 
 **Overlay:** 
-You may add text and/or a QR code to the wallpaper. 
+You may add text and/or a QR code to the wallpaper. At present the QR code will only contain the serial number of the device and can't be customized.
 
 **Text to display:** 
 Enter any text you want to overlay. The text may be formatted using the format dropdown…
